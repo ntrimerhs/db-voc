@@ -2,7 +2,7 @@
 Collecting information - Mega VoC
 
 
-# Dependencies: `npm install firebase express system-sleep`
+# Dependencies: `npm install firebase express system-sleep ascii-progress`
 # Needs: `key.json`
 
 Run `comments.json & emails.json' like this:
