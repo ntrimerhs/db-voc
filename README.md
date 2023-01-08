@@ -2,5 +2,5 @@
 Collecting information - Mega VoC
 
 
-# Dependencies: `npm install firebase express system-sleep readline-sync`
+# Dependencies: `npm install firebase express system-sleep`
 # Needs: `key.json`
