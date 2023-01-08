@@ -7,4 +7,4 @@ Collecting information - Mega VoC
 
 Run `comments.json & emails.json' like this:
 
-`node comments.json > comments.txt && node emails.json > emails.txt`
+`node comments.js > comments.txt && node emails.js > emails.txt`
