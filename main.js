@@ -25,19 +25,16 @@ console.log("\nΕίστε ευχαρηστιμένοι από τις υπηρε�
 
 db.collection('arxikh1').get().then(snap => {
   size = snap.size 
-  size = size - 1; //do-not-delete counts as one
   console.log('Πολύ:', size);
 });
 
 db.collection('arxikh2').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Αρκετά:', size);
 });
 
 db.collection('arxikh3').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Καθόλου:', size);
 });
 
@@ -46,19 +43,16 @@ console.log("\nΠώς σας φάνηκε η εξυπηρέτηση στο κα�
 
 db.collection('deuterh1').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Καλή:', size);
 });
 
 db.collection('deuterh2').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Μέτρια:', size);
 });
 
 db.collection('deuterh3').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Κακή:', size);
 });
 
@@ -67,19 +61,16 @@ console.log("\nΠώς σας φάνηκε η ποικιλία των προϊό�
 
 db.collection('trith1').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Καλή:', size);
 });
 
 db.collection('trith2').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Μέτρια:', size);
 });
 
 db.collection('trith3').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Ελλιπής:', size);
 });
 
@@ -88,13 +79,11 @@ console.log("\nΘα επιλέγατε ξανά το κατάστημά μας;\
 
 db.collection('epistrofh-nai').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Ναι:', size);
 });
 
 db.collection('epistrofh-oxi').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Όχι:', size);
 });
 
@@ -103,13 +92,11 @@ console.log("\nΘα θέλατε να προσθέσετε κάποιο σχόλ
 
 db.collection('sxolio-nai').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Ναι:', size);
 });
 
 db.collection('sxolio-oxi').get().then(snap => {
   size = snap.size
-  size = size -1;
   console.log('Όχι:', size);
 });
 
