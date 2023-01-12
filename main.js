@@ -1,5 +1,55 @@
 const express = require("express");
 const app = express();
+const rdl = require("readline")
+const filesystem = require("fs");
+const l = console.log
+const process = require("process")
+const std = process.stdout
+const colors = {
+  "yellow": [33, 89],
+  "blue": [34, 89],
+  "green": [32, 89]
+}
+const spinners = JSON.parse(filesystem.readFileSync('./spinners.json').toString())
+class Spinner {
+  constructor() {
+      this.timer = null
+      this.colorTxt = {
+          start: "",
+          stop: ""
+      }
+  }
+
+  spin(spinnerName) {
+      process.stdout.write("\x1B[?25l")
+      const spin = spinners[spinnerName]
+      const spinnerFrames = spin.frames
+      const spinnerTimeInterval = spin.interval
+      let index = 0
+      this.timer = setInterval(() => {
+          let now = spinnerFrames[index]
+          if (now == undefined) {
+              index = 0
+              now = spinnerFrames[index]
+          }
+          std.write(this.colorTxt.start + now + this.colorTxt.stop)
+          rdl.cursorTo(std, 0, 0)
+          index = index >= spinnerFrames.length ? 0 : index + 1
+      }, spinnerTimeInterval)
+
+  }
+
+  color(colorName) {
+      colorName = colors[colorName]
+      this.setColor(colorName)
+      return this
+  }
+
+  setColor(colorName) {
+      this.colorTxt.start = "\x1b[" + colorName[0] + "m"
+      this.colorTxt.stop = "\x1b[" + colorName[1] + "m\x1b[0m"
+  }
+}
 
 var ts = Date.now();
 let date_ob = new Date(ts);
@@ -17,7 +67,7 @@ fs.initializeApp({
 
 const db = fs.firestore();
 var sleep = require('system-sleep');
-
+new Spinner().color("blue").spin("line")
 db.collection('arxikh1').get().then(snap => {
   arxikh1 = snap.size 
 });
