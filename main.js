@@ -18,88 +18,121 @@ fs.initializeApp({
 const db = fs.firestore();
 var sleep = require('system-sleep');
 
-//Print out all the documents
-//db.collection("arxikh1").get().then(snapshot=>snapshot.docs.forEach(doc=>console.log(doc.data())))
-
-console.log("\nΕίστε ευχαρηστιμένοι από τις υπηρεσίες μας;\n")
-
 db.collection('arxikh1').get().then(snap => {
-  size = snap.size 
-  console.log('Πολύ:', size);
+  arxikh1 = snap.size 
 });
-
+  
 db.collection('arxikh2').get().then(snap => {
-  size = snap.size
-  console.log('Αρκετά:', size);
+  arxikh2 = snap.size
 });
-
+  
 db.collection('arxikh3').get().then(snap => {
-  size = snap.size
-  console.log('Καθόλου:', size);
+  arxikh3 = snap.size
 });
-
 sleep(2*1000);
-console.log("\nΠώς σας φάνηκε η εξυπηρέτηση στο κατάστημά μας;\n");
-
+  
 db.collection('deuterh1').get().then(snap => {
-  size = snap.size
-  console.log('Καλή:', size);
+  deuterh1 = snap.size
 });
-
+  
 db.collection('deuterh2').get().then(snap => {
-  size = snap.size
-  console.log('Μέτρια:', size);
+  deuterh2 = snap.size
 });
-
+  
 db.collection('deuterh3').get().then(snap => {
-  size = snap.size
-  console.log('Κακή:', size);
+  deuterh3 = snap.size
 });
-
 sleep(2*1000);
-console.log("\nΠώς σας φάνηκε η ποικιλία των προϊόντων μας;\n");
-
+  
 db.collection('trith1').get().then(snap => {
-  size = snap.size
-  console.log('Καλή:', size);
+  trith1 = snap.size
 });
-
+  
 db.collection('trith2').get().then(snap => {
-  size = snap.size
-  console.log('Μέτρια:', size);
+  trith2 = snap.size
 });
-
+  
 db.collection('trith3').get().then(snap => {
-  size = snap.size
-  console.log('Ελλιπής:', size);
+  trith3 = snap.size
 });
-
+  
 sleep(2*1000);
-console.log("\nΘα επιλέγατε ξανά το κατάστημά μας;\n");
-
+  
 db.collection('epistrofh-nai').get().then(snap => {
-  size = snap.size
-  console.log('Ναι:', size);
+  epistrofhNai = snap.size
 });
-
+  
 db.collection('epistrofh-oxi').get().then(snap => {
-  size = snap.size
-  console.log('Όχι:', size);
+  epistrofhOxi = snap.size
 });
-
+  
 sleep(2*1000);
-console.log("\nΘα θέλατε να προσθέσετε κάποιο σχόλιο;\n");
-
+  
 db.collection('sxolio-nai').get().then(snap => {
-  size = snap.size
-  console.log('Ναι:', size);
+  sxolioNai = snap.size
 });
-
+  
 db.collection('sxolio-oxi').get().then(snap => {
-  size = snap.size
-  console.log('Όχι:', size);
+  sxolioOxi = snap.size
 });
+  
+db.collection('comments').get().then(snap => {
+  comments = snap.size
+})
+  
+db.collection('emails').get().then(snap => {
+  emails = snap.size
+})
+spinner.stop() 
+sleep(300);
+console.log("Data successfully fetched.");
 
+sleep(300);
+console.log('\n---------------------------------------------------------------------------------');
+console.log("\nΕίστε ευχαρηστιμένοι από τις υπηρεσίες μας;\n")
+console.log('Πολύ:', arxikh1);
+console.log('Αρκετά:', arxikh2);
+console.log('Καθόλου:', arxikh3);
+console.log('\n---------------------------------------------------------------------------------\n');
 
-sleep(2150);
-console.log("\nLast deployment:", year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
+sleep (300);
+
+console.log('\n---------------------------------------------------------------------------------');
+console.log("\nΠώς σας φάνηκε η εξυπηρέτηση στο κατάστημά μας;\n");
+console.log('Καλή:', deuterh1);
+console.log('Μέτρια:', deuterh2);
+console.log('Κακή:', deuterh3);
+console.log('\n---------------------------------------------------------------------------------\n');
+
+sleep (300);
+
+console.log('\n---------------------------------------------------------------------------------');
+console.log("\nΠώς σας φάνηκε η ποικιλία των προϊόντων μας;\n");
+console.log('Καλή:', trith1);
+console.log('Μέτρια:', trith2);
+console.log('Ελλιπής:', trith3);
+console.log('\n---------------------------------------------------------------------------------\n');
+
+sleep (300);
+
+console.log('\n---------------------------------------------------------------------------------');
+console.log("\nΘα επιλέγατε ξανά το κατάστημά μας;\n");
+console.log('Ναι:', epistrofhNai);
+console.log('Όχι:', epistrofhOxi);
+console.log('\n---------------------------------------------------------------------------------\n');
+
+sleep (300);
+console.log('\n---------------------------------------------------------------------------------');
+console.log("\nΘα θέλατε να προσθέσετε κάποιο σχόλιο;\n");
+console.log('Ναι:', sxolioNai);
+console.log('Όχι:', sxolioOxi);
+console.log('\n---------------------------------------------------------------------------------\n');
+
+console.log('\n---------------------------------------------------------------------------------');
+console.log('\nΑριθμός Σχολίων:', comments);
+sleep(300);
+console.log('Αριθμός Email/Τηλεφώνων:', emails);
+console.log('\n---------------------------------------------------------------------------------');
+
+sleep(1100);
+console.log("\n\nLast deployment:", year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
