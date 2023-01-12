@@ -83,7 +83,6 @@ db.collection('comments').get().then(snap => {
 db.collection('emails').get().then(snap => {
   emails = snap.size
 })
-spinner.stop() 
 sleep(300);
 console.log("Data successfully fetched.");
 
