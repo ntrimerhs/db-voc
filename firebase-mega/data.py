@@ -1,7 +1,7 @@
 import sys
 from openpyxl import Workbook, load_workbook
 
-wb = load_workbook('mega.xlsx') 
+wb = load_workbook('./../excel/mega/mega.xlsm') 
 ws = wb.active
 
 kales = int(sys.argv[1])
@@ -19,5 +19,5 @@ ws['E5'] = kakes
 ws['G5'] = epistrofes
 ws['H5'] = sxolia
 
-wb.save('mega.xlsx')
+wb.save('./../excel/mega/mega.xlsm') 
 sys.stdout.flush()
