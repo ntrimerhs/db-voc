@@ -146,7 +146,8 @@ sleep(100);
 console.log("Sending variables to data.py...");
 
 var python_process = spawner("python", 
-["./data.py", arxikh1,
+["./data.py",
+              arxikh1,
               arxikh2,
               arxikh3,
               deuterh1,
@@ -159,7 +160,7 @@ var python_process = spawner("python",
               epistrofhOxi,
               sxolioNai,
               sxolioOxi,
-comments]
+              comments]
 );
 
 python_process.stdout.on('data', (data) => {
