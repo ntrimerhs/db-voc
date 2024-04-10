@@ -8,7 +8,6 @@ const std = process.stdout
 const spawner = require('child_process').spawn;
 const { google } = require('googleapis');
 const dbService = "service.json";
-const sheetId = "1H9XOEPKSySUZBD4P2B5Z6IRLnKElpsDgRehqhTQuedc";
 var ts = Date.now();
 
 let date_ob = new Date(ts);
