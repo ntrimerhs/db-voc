@@ -7,7 +7,7 @@ const process = require("process")
 const std = process.stdout
 const spawner = require('child_process').spawn;
 const { google } = require('googleapis');
-const dbService = "./service_account/service.json";
+const dbService = "service.json";
 const sheetId = "1H9XOEPKSySUZBD4P2B5Z6IRLnKElpsDgRehqhTQuedc";
 var ts = Date.now();
 
