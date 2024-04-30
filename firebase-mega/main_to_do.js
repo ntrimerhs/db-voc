@@ -6,9 +6,10 @@ const l = console.log
 const process = require("process")
 const std = process.stdout
 const spawner = require('child_process').spawn;
-
+const { google } = require('googleapis');
+const dbService = ".service.json";
+const sheetId = "1H9XOEPKSySUZBD4P2B5Z6IRLnKElpsDgRehqhTQuedc";
 var ts = Date.now();
-
 let date_ob = new Date(ts);
 let date = date_ob.getDate();
 let month = date_ob.getMonth() + 1;
@@ -16,6 +17,18 @@ let year = date_ob.getFullYear();
 let hours = date_ob.getHours();
 let minutes = date_ob.getMinutes();
 let seconds = date_ob.getSeconds();
+
+async function _getGoogleSheetClient() {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: serviceAccountKeyFile,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+  });
+  const authClient = await auth.getClient();
+  return google.sheets({
+    version: 'v4',
+    auth: authClient,
+  });
+}
 
 const fs = require('firebase-admin');
 const serviceAccount = require("./../keys/mega/key.json");
@@ -146,7 +159,8 @@ sleep(100);
 console.log("Sending variables to data.py...");
 
 var python_process = spawner("python", 
-["./data.py", arxikh1,
+["./data.py",
+              arxikh1,
               arxikh2,
               arxikh3,
               deuterh1,
@@ -159,11 +173,21 @@ var python_process = spawner("python",
               epistrofhOxi,
               sxolioNai,
               sxolioOxi,
-comments]
+              comments]
 );
 
 python_process.stdout.on('data', (data) => {
   console.log('Python says:',data.toString());
 });
+
+//TODO CODE ENTRY TO DB
+
+const values = [{ a: arxikh1, b: arxikh2, c: arxikh3},
+                { d: epistrofhNai, e: sxolioNai}
+];
+
+worksheet.setHeaderRow(["a", "b", "c", "c", "e"]);
+worksheet.addRows
+
 sleep(1100);
 console.log("\n\nLast deployment:", year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds);
