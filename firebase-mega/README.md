@@ -4,8 +4,8 @@ Collecting information - Mega VoC
 
 # Dependencies: 
 `npm install firebase express system-sleep cli-progress`
-`pip install openpyxl`
-# Needs: `key.json` `mega.xlsx`
+`pip install gspread`
+# Needs: `key.json` `mega.xlsx` 'credentials.json' and 'sheet'
 
 # Run comments.json & emails.json like this:
 
